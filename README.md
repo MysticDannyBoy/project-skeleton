@@ -25,10 +25,10 @@ A cégnek szüksége lesz egy ERP-re, ami az OOP-ra hasonlít.
 A kettő között van a "functional programming", és ez a "cégmotor", bár még mindig nem ERP, mégis egy integrált workflow követő akármi, ami könnyebb és következetesebb munkavégzést hoz létre.
 
 ## Port beosztás, alkalmazásonként
-|App		|Port	|
-|---		|---	|
-|BookStack	|8000	|
-|Corteza	|8100	|
-|JBMP		|8200	|
-|Karavan	|8300	|
-|OpenProject|8400	|
+|App		|Port	|Login																				|URL																			 |
+|---		|---	|---																				|---																			 |
+|BookStack	|8000	|username: `admin@admin.com`<br> pass: `password`									|[http://localhost:8000/](http://localhost:8000/)|
+|Corteza	|8100	|neked kell megadni, az első regisztrált felhasználó automatikusan admin lesz		|[http://localhost:8100/](http://localhost:8100/)|
+|JBMP		|8200	|username: `wbadmin`<br> pass: `wbadmin`											|[http://localhost:8200/business-central](http://localhost:8200/business-central)|
+|Karavan	|8300	|nincs login																		|[http://localhost:8300/](http://localhost:8300/)|
+|OpenProject|8400	|username: `admin`<br> pass: `admin`												|[http://localhost:8400/](http://localhost:8400/)|
