@@ -23,3 +23,12 @@ Miután a standardok leírásának módjánál rátaláltam a "process engine" a
 Most a cég nyersen dolgozik, hasonlóan az "imperative programming"-hoz.
 A cégnek szüksége lesz egy ERP-re, ami az OOP-ra hasonlít.
 A kettő között van a "functional programming", és ez a "cégmotor", bár még mindig nem ERP, mégis egy integrált workflow követő akármi, ami könnyebb és következetesebb munkavégzést hoz létre.
+
+## Port beosztás, alkalmazásonként
+|App		|Port	|
+|---		|---	|
+|BookStack	|8000	|
+|Corteza	|8100	|
+|JBMP		|8200	|
+|Karavan	|8300	|
+|OpenProject|8400	|

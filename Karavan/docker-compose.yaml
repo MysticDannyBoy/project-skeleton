@@ -7,7 +7,7 @@ services:
     container_name: karavan
     image: ghcr.io/apache/camel-karavan:4.5.1
     ports:
-      - "8080:8080"
+      - "8300:8080"
     environment:
       - KARAVAN_GIT_REPOSITORY=${KARAVAN_GIT_REPOSITORY}
       - KARAVAN_GIT_USERNAME=${KARAVAN_GIT_USERNAME}
@@ -31,7 +31,7 @@ services:
     image: registry:2
     restart: always
     ports:
-      - "5555:5000"
+      - "8355:5000"
     labels:
       - "org.apache.camel.karavan/type=internal"  
     networks:

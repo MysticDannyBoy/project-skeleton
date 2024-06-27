@@ -7,7 +7,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
-      - APP_URL=http://localhost:8080
+      - APP_URL=http://localhost:8000
       - DB_HOST=bookstack_db
       - DB_PORT=3306
       - DB_USER=bookstack
@@ -16,7 +16,7 @@ services:
     volumes:
       - bookstack_server:/config
     ports:
-      - 8080:80
+      - 8000:80
     restart: unless-stopped
     depends_on:
       - bookstack_db
