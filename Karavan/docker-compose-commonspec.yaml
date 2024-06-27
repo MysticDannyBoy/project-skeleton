@@ -1,0 +1,48 @@
+# Ezt előre le kell generálni:
+# docker network create karavan_network
+# Ezeket a volume-okat előre létrekell hozni:
+# docker volume create karavan_registry_lib
+name: karavan_container
+services:
+    karavan_server:
+        env_file:
+            - .env
+        container_name: karavan_server
+        image: ghcr.io/apache/camel-karavan:4.5.1
+        ports:
+            - 8300:8080
+        environment:
+            - KARAVAN_GIT_REPOSITORY=${KARAVAN_GIT_REPOSITORY}
+            - KARAVAN_GIT_USERNAME=${KARAVAN_GIT_USERNAME}
+            - KARAVAN_GIT_PASSWORD=${KARAVAN_GIT_PASSWORD}
+            - KARAVAN_GIT_BRANCH=main
+            - KARAVAN_CONTAINER_IMAGE_REGISTRY=registry:5000
+            - KARAVAN_CONTAINER_IMAGE_REGISTRY_USERNAME=
+            - KARAVAN_CONTAINER_IMAGE_REGISTRY_PASSWORD=
+            - KARAVAN_CONTAINER_IMAGE_GROUP=karavan
+            - KARAVAN_DOCKER_NETWORK=karavan
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        labels:
+            - org.apache.camel.karavan/type=internal
+        networks:
+            - karavan_network
+    registry:
+        container_name: registry
+        image: registry:2
+        restart: always
+        ports:
+            - 8355:5000
+        labels:
+            - org.apache.camel.karavan/type=internal
+        networks:
+            - karavan_network
+        volumes:
+            - karavan_registry_lib:/var/lib/registry
+networks:
+    karavan_network:
+        name: karavan_network
+        external: true
+volumes:
+    karavan_registry_lib:
+        external: true

@@ -1,0 +1,24 @@
+# Ezeket a volume-okat előre létrekell hozni:
+# docker volume create openproject_assets
+# docker volume create openproject_pgdata
+name: openproject_container
+services:
+    openproject_server:
+        stdin_open: true
+        tty: true
+        ports:
+            - 8400:80
+        environment:
+            - OPENPROJECT_SECRET_KEY_BASE=secret
+            - OPENPROJECT_HOST__NAME=localhost:8400
+            - OPENPROJECT_HTTPS=false
+            - OPENPROJECT_DEFAULT__LANGUAGE=en
+        image: openproject/openproject:14
+        volumes:
+            - openproject_assets:/var/openproject/assets
+            - openproject_pgdata:/var/openproject/pgdata
+volumes:
+    openproject_assets:
+        external: true
+    openproject_pgdata:
+        external: trues
