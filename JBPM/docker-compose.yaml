@@ -1,0 +1,10 @@
+---
+version: '3'
+
+services:
+    jbpm-server-full:
+        ports:
+            - 8080:8080
+            - 8001:8001
+        container_name: jbpm-server-full
+        image: jboss/jbpm-server-full:latest
