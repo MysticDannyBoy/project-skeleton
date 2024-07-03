@@ -1,0 +1,10 @@
+name: joget_container
+services:
+    joget-community:
+        ports:
+            - 8080:8080
+        volumes:
+            - joget_mysql:/var/lib/mysql
+            - joget_wflow:/opt/joget/wflow
+        container_name: joget
+        image: jogetworkflow/joget-community
