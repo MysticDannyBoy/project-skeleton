@@ -1,0 +1,7 @@
+name: nifi_container
+services:
+    nifi:
+        container_name: nifi
+        ports:
+            - 8443:8443
+        image: apache/nifi:latest

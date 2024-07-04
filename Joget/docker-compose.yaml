@@ -8,3 +8,9 @@ services:
             - joget_wflow:/opt/joget/wflow
         container_name: joget
         image: jogetworkflow/joget-community
+
+volumes:
+  joget_mysql:
+    external: true
+  joget_wflow:
+    external: true
