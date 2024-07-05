@@ -1,46 +1,44 @@
----
-services:
-  bookstack:
-    image: lscr.io/linuxserver/bookstack
-    container_name: bookstack
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
-      - APP_URL=http://localhost:8000
-      - DB_HOST=bookstack_db
-      - DB_PORT=3306
-      - DB_USER=bookstack
-      - DB_PASS=1234pass
-      - DB_DATABASE=bookstackapp
-    volumes:
-      - bookstack_server:/config
-    ports:
-      - 8000:80
-    restart: unless-stopped
-    depends_on:
-      - bookstack_db
-
-  bookstack_db:
-    image: lscr.io/linuxserver/mariadb
-    container_name: bookstack_db
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
-      - MYSQL_ROOT_PASSWORD=1234pass
-      - MYSQL_DATABASE=bookstackapp
-      - MYSQL_USER=bookstack
-      - MYSQL_PASSWORD=1234pass
-    volumes:
-      - bookstack_db:/config
-    restart: unless-stopped
-    
 # Ezeket a volume-okat előre létrekell hozni:
 # docker volume create bookstack_server
-# docker volume create bookstack_db
+# docker volume create bookstack_database
+name: bookstack_container
+services:
+    bookstack_server:
+        image: lscr.io/linuxserver/bookstack
+        container_name: bookstack_server
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=Europe/London
+            - APP_URL=http://localhost:8000
+            - DB_HOST=bookstack_database
+            - DB_PORT=3306
+            - DB_USER=bookstack
+            - DB_PASS=1234pass
+            - DB_DATABASE=bookstackapp
+        volumes:
+            - bookstack_server:/config
+        ports:
+            - 8000:80
+        restart: unless-stopped
+        depends_on:
+            - bookstack_database
+    bookstack_database:
+        image: lscr.io/linuxserver/mariadb
+        container_name: bookstack_database
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=Europe/London
+            - MYSQL_ROOT_PASSWORD=1234pass
+            - MYSQL_DATABASE=bookstackapp
+            - MYSQL_USER=bookstack
+            - MYSQL_PASSWORD=1234pass
+        volumes:
+            - bookstack_database:/config
+        restart: unless-stopped
 volumes:
-  bookstack_server:
-    external: true
-  bookstack_db:
-    external: true
+    bookstack_server:
+        external: true
+    bookstack_database:
+        external: true
