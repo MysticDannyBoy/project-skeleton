@@ -3,8 +3,8 @@ Ez a projekt arról szól, hogy egy ún. "cégmotort" állítok össze open sour
 
 ## Felhasznált appok
 Ehhez a következő appokat használom fel:
-- JBPM
-	- egy masszívan mature, komplex "process engine", fullon BPMN 2.0 compliant, stb.
+- Joget Workflow
+	- egy drag-and-drop "process engine", BPMN compliant, Peti vágja, használta már stb.
 - OpenProject
 	- egy open source Trello, több funkcióval, profi téma
 - Corteza
@@ -13,9 +13,18 @@ Ehhez a következő appokat használom fel:
 	- van egy beépített CRM téma benne, de tudnánk a minta-tárolásokra is használni, stb.
 - BookStack
 	- egy tudástároló open source eszköz, lényegében egy kicsit friendly-bb verziója, de nem olyan profi, mint az Obsidian
-- Apache Camel (Karavan)
-	- egy integrációs framework, ami lehetővé teszi a különféle applikációk automatizált összekötését
+- Apache NiFi
+	- egy data-flow framework, ami lehetővé teszi a különféle applikációk automatizált adat-összekötést
 	- ez kivenné az embereket, mint glue-code-ot a feladatokból
+	- drag-and-drop megoldásokat alkalmaz, 
+	
+## Korábban használni tervezett appok
+- JBPM
+	- egy masszívan mature, komplex "process engine", fullon BPMN 2.0 compliant, stb.
+	- a Joget Workflow-t könnyebb használni, és Peti ismeri, és használta, szóval inkább azt használjuk
+		- a Joget az csak BPMN, ez pedig BPMN 2.0 compliant; mindenesetre, nekünk a célnak ez is megfelel
+- Apache Camel (Karavan)
+	- egy integration framework, és bár komplexebb integrációkra képes, nekünk egyelőre az Apache NiFi megfelel a célnak
 
 ## "Cégmotor"
 Miután a standardok leírásának módjánál rátaláltam a "process engine" azaz "folyamat motor" szavakra, eszembe nem jutott, hogy ilyen létezhet, és mégis.
@@ -27,8 +36,9 @@ A kettő között van a "functional programming", és ez a "cégmotor", bár mé
 ## Port beosztás, alkalmazásonként
 |App		|Port	|Login																				|URL																			 |
 |---		|---	|---																				|---																			 |
-|BookStack	|8000	|username: `admin@admin.com`<br> pass: `password`									|[http://localhost:8000/](http://localhost:8000/)|
-|Corteza	|8100	|neked kell megadni, az első regisztrált felhasználó automatikusan admin lesz		|[http://localhost:8100/](http://localhost:8100/)|
+|BookStack	|8000	|username: `admin@admin.com`<br> pass: `password`									|[http://localhost:8000/](http://localhost:8000/)								 |
+|Corteza	|8100	|neked kell megadni, az első regisztrált felhasználó automatikusan admin lesz		|[http://localhost:8100/](http://localhost:8100/)								 |
 |JBMP		|8200	|username: `wbadmin`<br> pass: `wbadmin`											|[http://localhost:8200/business-central](http://localhost:8200/business-central)|
-|Karavan	|8300	|nincs login																		|[http://localhost:8300/](http://localhost:8300/)|
-|OpenProject|8400	|username: `admin`<br> pass: `admin`												|[http://localhost:8400/](http://localhost:8400/)|
+|Karavan	|8300	|nincs login																		|[http://localhost:8300/](http://localhost:8300/)								 |
+|OpenProject|8400	|username: `admin`<br> pass: `admin`												|[http://localhost:8400/](http://localhost:8400/)								 |
+|Joget		|8500	|username: `???`<br> pass: `???`													|[http://localhost:8500/](http://localhost:8500/)								 |
