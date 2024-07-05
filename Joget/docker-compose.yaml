@@ -1,10 +1,21 @@
-name: joget_container
+name: joget
 services:
-    joget-community:
+    joget:
         ports:
-            - 8080:8080
+            - 8500:8080
         volumes:
-            - joget_mysql:/var/lib/mysql
-            - joget_wflow:/opt/joget/wflow
+            - mysql_volume:/var/lib/mysql
+            - workflow_volume:/opt/joget/wflow
         container_name: joget
         image: jogetworkflow/joget-community
+        networks:
+            - joget_network
+networks:
+    joget_network:
+        name: joget_network
+        external: false
+volumes:
+  mysql_volume:
+    external: false
+  workflow_volume:
+    external: false

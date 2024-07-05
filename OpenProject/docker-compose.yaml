@@ -1,5 +1,4 @@
----
-version: "3"
+name: openproject
 services:
     openproject:
         stdin_open: true
@@ -12,15 +11,18 @@ services:
             - OPENPROJECT_HTTPS=false
             - OPENPROJECT_DEFAULT__LANGUAGE=en
         image: openproject/openproject:14
+        container_name: openproject
         volumes:
-            - openproject_assets:/var/openproject/assets
-            - openproject_pgdata:/var/openproject/pgdata
-
-# Ezeket a volume-okat előre létrekell hozni:
-# docker volume create openproject_assets
-# docker volume create openproject_pgdata
+            - assets_volume:/var/openproject/assets
+            - pgdata_volume:/var/openproject/pgdata
+        networks:
+            - openproject_network
+networks:
+    openproject_network:
+        name: openproject_network
+        external: false
 volumes:
-  openproject_assets:
-    external: true
-  openproject_pgdata:
-    external: true
+    assets_volume:
+        external: false
+    pgdata_volume:
+        external: false

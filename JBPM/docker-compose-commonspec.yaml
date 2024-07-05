@@ -1,8 +1,0 @@
-name: jbpm_container
-services:
-    jbpm_server:
-        ports:
-            - 8200:8080
-            - 8201:8001
-        container_name: jbpm_server
-        image: jboss/jbpm-server-full:latest
