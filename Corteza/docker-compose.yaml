@@ -1,10 +1,10 @@
 name: corteza
 services:
-    server:
+    corteza:
         image: cortezaproject/corteza:${VERSION}
-        container_name: server
+        container_name: corteza
         env_file:
-            - .env
+            - .env
         ports:
             - 8100:80
         volumes:
@@ -12,6 +12,8 @@ services:
         restart: always
         depends_on:
             - database
+        networks:
+            - corteza_network
     database:
         # PostgreSQL Database
         # See https://hub.docker.com/_/postgres for details
@@ -34,6 +36,12 @@ services:
             # manually inside database container
             POSTGRES_USER: corteza
             POSTGRES_PASSWORD: corteza
+        networks:
+            - corteza_network
+networks:
+    corteza_network:
+        name: corteza_network
+        external: false
 volumes:
     server_volume:
         external: false

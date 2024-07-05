@@ -1,7 +1,36 @@
-name: nifi_container
+name: nifi
 services:
     nifi:
         container_name: nifi
         ports:
             - 8443:8443
         image: apache/nifi:latest
+        networks:
+            - nifi_network
+        volumes:
+            - conf_volume:/opt/nifi/nifi-current/conf
+            - content_repository_volume:/opt/nifi/nifi-current/content_repository
+            - database_repository_volume:/opt/nifi/nifi-current/database_repository
+            - flowfile_repository_volume:/opt/nifi/nifi-current/flowfile_repository
+            - logs_volume:/opt/nifi/nifi-current/logs
+            - provenance_repository_volume:/opt/nifi/nifi-current/provenance_repository
+            - state_volume:/opt/nifi/nifi-current/state
+networks:
+    nifi_network:
+        name: nifi_network
+        external: false
+volumes:
+    conf_volume:
+        external: false
+    content_repository_volume:
+        external: false
+    database_repository_volume:
+        external: false
+    flowfile_repository_volume:
+        external: false
+    logs_volume:
+        external: false
+    provenance_repository_volume:
+        external: false
+    state_volume:
+        external: false

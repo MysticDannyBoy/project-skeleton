@@ -1,8 +1,8 @@
 name: bookstack
 services:
-    server:
+    bookstack:
         image: lscr.io/linuxserver/bookstack
-        container_name: server
+        container_name: bookstack
         environment:
             - PUID=1000
             - PGID=1000
@@ -20,6 +20,8 @@ services:
         restart: unless-stopped
         depends_on:
             - database
+        networks:
+            - bookstack_network
     database:
         image: lscr.io/linuxserver/mariadb
         container_name: database
@@ -34,6 +36,12 @@ services:
         volumes:
             - database_volume:/config
         restart: unless-stopped
+        networks:
+            - bookstack_network
+networks:
+    bookstack_network:
+        name: bookstack_network
+        external: false
 volumes:
     server_volume:
         external: false

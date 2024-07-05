@@ -1,9 +1,9 @@
 name: karavan
 services:
-    server:
+    karavan:
         env_file:
             - .env
-        container_name: server
+        container_name: karavan
         image: ghcr.io/apache/camel-karavan:4.5.1
         ports:
             - 8300:8080

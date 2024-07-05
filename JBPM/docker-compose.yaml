@@ -1,8 +1,14 @@
 name: jbpm
 services:
-    server:
+    jbpm:
         ports:
             - 8200:8080
             - 8201:8001
-        container_name: server
+        container_name: jbpm
         image: jboss/jbpm-server-full:latest
+        networks:
+            - jbpm_network
+networks:
+    jbpm_network:
+        name: jbpm_network
+        external: false
