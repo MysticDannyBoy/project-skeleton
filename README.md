@@ -38,6 +38,9 @@ Ehhez a következő appokat használom fel:
 	- ticketing szoftver
 - Zammad
 	- ticketing szoftver, ígéretesebb, mint az osTicket
+- Mautic
+	- marketing automatizáló szoftver, valamire használható
+
 
 ## "Cégmotor"
 Miután a standardok leírásának módjánál rátaláltam a "process engine" azaz "folyamat motor" szavakra, eszembe nem jutott, hogy ilyen létezhet, és mégis.
