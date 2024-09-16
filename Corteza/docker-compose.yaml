@@ -4,7 +4,7 @@ services:
         image: cortezaproject/corteza:${VERSION}
         container_name: corteza
         env_file:
-            - .env
+            - .env
         ports:
             - 8100:80
         volumes:
