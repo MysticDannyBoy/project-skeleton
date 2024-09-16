@@ -1,0 +1,17 @@
+name: nocodb
+services:
+    nocodb:
+        image: nocodb/nocodb:latest
+        container_name: nocodb
+        ports:
+            - 8600:8080
+        volumes:
+            - nocodb_data:/usr/app/data/
+
+networks:
+    bookstack_network:
+        name: nocodb_network
+        external: false
+volumes:
+    nocodb_data:
+        external: false

@@ -58,6 +58,8 @@ A kettő között van a "functional programming", és ez a "cégmotor", bár mé
 |OpenProject	|8400	 |username: `admin`<br> pass: `admin`																																						|[http://localhost:8400/](http://localhost:8400/)											 |
 |Apache NiFi	|8443[^1]|a username és pass a `docker logs nifi`-ban lesz, valahogy így:<br>`Generated Username [8e1989c8-7afc-403b-8e74-751cbfe58355]`<br>`Generated Password [zNmwmi4PkB8nEIPgYTRk79wU1SR1Lpyy]`	|[https://localhost:8443/nifi/](https://localhost:8443/nifi/)								 |
 |Joget Worfklow	|8500	 |username: `admin`<br> pass: `admin`																																						|[http://localhost:8500/](http://localhost:8500/)											 |
+|NocoDB			|8600	 | ilyen nincs																																												|[http://localhost:8600/](http://localhost:8600)											 |
+|Rocket.chat	|3000	 | ilyen nincs																																												|[http://localhost:3000/](http://localhost:3000)											 |
 
 ### Leváltott appok
 
