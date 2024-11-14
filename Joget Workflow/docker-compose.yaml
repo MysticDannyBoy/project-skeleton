@@ -2,7 +2,7 @@ name: joget
 services:
     joget:
         ports:
-            - 8500:8080
+            - 9500:8080
         volumes:
             - mysql_volume:/var/lib/mysql
             - workflow_volume:/opt/joget/wflow
